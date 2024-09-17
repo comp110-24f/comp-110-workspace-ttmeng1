@@ -10,7 +10,5 @@ def num_instances(phrase: str, search_char: str) -> int:
     while loop_count < len(phrase):
         if phrase[loop_count] == search_char:
             char_count += 1
+        loop_count += 1
     return char_count
-
-
-print(num_instances(phrase="Hello", search_char="o"))
