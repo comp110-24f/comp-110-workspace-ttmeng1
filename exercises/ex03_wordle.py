@@ -53,9 +53,9 @@ def main(secret: str) -> None:
     guesses: int = 1
     while guesses <= 6:  # Loops through to ask user for 6 guesses
         print(f"=== Turn {guesses}/6 ===")
-        input_guess: str = input(f"Enter a {len(secret)} character word:")
-        print(emojified(guess=input_guess, secret_word=secret))
-        if emojified(guess=input_guess, secret_word=secret) == (
+        user_guess = input_guess(len(secret))
+        print(emojified(guess=user_guess, secret_word=secret))
+        if emojified(guess=user_guess, secret_word=secret) == (
             "\U0001F7E9" * len(secret)
         ):  # If user guesses secret word correctly, loop exits
             print(f"You won in {guesses}/6 turns!")
