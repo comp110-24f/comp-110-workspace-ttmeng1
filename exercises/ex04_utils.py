@@ -1,10 +1,10 @@
-"""EX04: Utils"""
+"""EX04: Utils!"""
 
 __author__ = "730765267"
 
 
 def all(list: list[int], int: int) -> bool:
-    """Determines whether all ints in list are same as given int"""
+    """Determines whether all ints in list are same as given int."""
     idx = 0
     if list == []:  # If list is empty, returns False
         return False
@@ -16,7 +16,7 @@ def all(list: list[int], int: int) -> bool:
 
 
 def max(list: list[int]) -> int:
-    """Returns largest int in list"""
+    """Returns largest int in list."""
     if len(list) == 0:
         raise ValueError("max() arg is an empty List")
     idx = 0
@@ -29,7 +29,7 @@ def max(list: list[int]) -> int:
 
 
 def is_equal(list1: list[int], list2: list[int]) -> bool:
-    """Determines if every element at every index is equal in 2 lists"""
+    """Determines if every element at every index is equal in 2 lists."""
     if len(list1) != len(list2):
         return False
     idx = 0
@@ -41,7 +41,7 @@ def is_equal(list1: list[int], list2: list[int]) -> bool:
 
 
 def extend(list1: list[int], list2: list[int]) -> None:
-    """Mutates list by appending second list to end"""
+    """Mutates list by appending second list to end."""
     idx = 0
     while idx < len(
         list2
