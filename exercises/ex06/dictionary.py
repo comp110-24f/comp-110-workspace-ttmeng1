@@ -23,6 +23,8 @@ def invert(input: dict[str, str]) -> dict[str, str]:
 
 def favorite_color(colors: dict[str, str]) -> str:
     """Returns most popular color in dictionary"""
+    if colors == {}:
+        return ""
     colors_count: dict[str, int] = (
         {}
     )  # Creates dictionary with color and how many times each appears
@@ -56,17 +58,18 @@ def count(list: list[str]) -> dict[str, int]:
     return dictionary
 
 
-def alphabetizer(list: list[str]) -> dict[str, list[str]]:
+def alphabetizer(word_list: list[str]) -> dict[str, list[str]]:
     """Creates dictionary with letters and all words starting with letter"""
     dictionary: dict[str, list[str]] = {}
-    for word in list:
+    for word in word_list:
         new_word = word.lower()  # Creates variable to store each word in all lower case
         first_letter = new_word[0]
         if (
             first_letter in dictionary
         ):  # If letter is already a key, adds word to the list of words
-            dictionary[first_letter].append(word)
-        else:  # If letter is not in the dictionary, creates key for letter with list containing word
+            letter_list: list[str] = dictionary[first_letter]
+            letter_list.append(word)
+        else:  # If letter is not in the dictionary, creates key
             dictionary[first_letter] = [word]
     return dictionary
 
@@ -74,6 +77,7 @@ def alphabetizer(list: list[str]) -> dict[str, list[str]]:
 def update_attendance(attendance: dict[str, list[str]], day: str, student: str) -> None:
     """Updates attendance log"""
     if day in attendance:  # If day is already logged, adds student to attendance record
-        attendance[day].append(student)
+        if student not in attendance[day]:
+            attendance[day].append(student)
     else:
         attendance[day] = [student]
