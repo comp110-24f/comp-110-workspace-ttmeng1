@@ -27,6 +27,10 @@ class River:
     def check_ages(self) -> None:
         """Checks ages of fish and bears."""
         x: int = 0
+        if len(self.fish) == 0:
+            return None
+        if len(self.bears) == 0:
+            return None
         while x < len(self.fish):  # Checks ages of fish
             fish: Fish = self.fish[x]
             if fish.age > 3:
@@ -37,10 +41,9 @@ class River:
         while y < len(self.bears):  # Checks ages of bears
             bear: Bear = self.bears[y]
             if bear.age > 5:
-                self.fish.pop(y)
+                self.bears.pop(y)
             else:
                 y += 1
-        return None
 
     def bears_eating(self) -> None:
         """Bears eat and removes fish."""
